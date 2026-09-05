@@ -1,0 +1,13 @@
+﻿@page "/Fibonacci"
+@rendermode InteractiveServer
+﻿
+@using System.Numerics;
+
+<h3>Число Фибоначчи</h3>
+
+<div>
+    <label>Индекс (n):</label>
+    <input type="number" @bind="n" @bind:after="Calculate" />
+</div>
+
+<p>F(@n) = @result</p>
