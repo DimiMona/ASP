@@ -3,26 +3,25 @@
 	public partial class Fibonacci
 	{
 		private int n = 10;
-		private long result = 55;
+		private List<long> fibonacciNumbers = new();
 
 		private void Calculate()
 		{
-			result = GetFibonacci(n);
-		}
+			fibonacciNumbers.Clear();
 
-		private long GetFibonacci(int n)
-		{
-			if (n <= 0) return 0;
-			if (n == 1) return 1;
+			if (n <= 0) return;
 
-			long a = 0, b = 1;
-			for (int i = 2; i <= n; i++)
+			fibonacciNumbers.Add(0);
+
+			if (n >= 2)
 			{
-				long temp = a + b;
-				a = b;
-				b = temp;
+				fibonacciNumbers.Add(1);
+
+				for (int i = 2; i < n; i++)
+				{
+					fibonacciNumbers.Add(fibonacciNumbers[i - 1] + fibonacciNumbers[i - 2]);
+				}
 			}
-			return b;
 		}
 	}
 }

@@ -10,4 +10,14 @@
     <input type="number" @bind="n" @bind:after="Calculate" />
 </div>
 
-<p>F(@n) = @result</p>
+@if (fibonacciNumbers.Any())
+{
+    <h4>Последовательность:</h4>
+    <p>@string.Join(", ", fibonacciNumbers)</p>
+    <p><strong>Всего чисел:</strong> @fibonacciNumbers.Count</p>
+    <p><strong>Последнее число:</strong> @fibonacciNumbers.Last()</p>
+}
+else
+{
+    <p>Введите n >= 1</p>
+}
