@@ -1,0 +1,22 @@
+﻿@page "/Power"
+@rendermode InteractiveServer
+﻿
+@using System.Numerics;
+
+<h1>Factorial</h1>
+
+<div class="power">
+	<div>
+        <label>Число:</label>
+        <input type="number" @bind="number" @bind:after="Calculate" />
+    </div>
+    <div>
+        <label>Степень:</label>
+        <input type="number" @bind="powerValue" @bind:after="Calculate" />
+    </div>
+    <div>
+        <p>@number ^ @powerValue = @result</p>
+    </div>
+	
+</div>
+@* <button @onclick="Calculate">Calculate</button> *@
