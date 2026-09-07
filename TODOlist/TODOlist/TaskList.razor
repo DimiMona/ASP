@@ -1,0 +1,40 @@
+﻿@page "/TaskList"
+@* @rendermode InteractiveServer *@
+
+<h3>TaskList</h3>
+
+<input type="text" @bind="description" />
+<button @onclick="AddTask">Добавить</button>
+
+<ul>
+	@foreach (TODO task in tasklist)
+	{
+		<li>
+			<input type.checkbox="checkbox" @bind="@task.DONE" />
+			@task.Description
+		</li>
+	}
+
+</ul>
+
+@code
+{
+	List<TODO> tasklist =
+	[
+		new TODO { Description = "Полить цветы "},
+		new TODO { Description = "Покормить кота", DONE = true},
+		new TODO { Description = "Сходить в магаз", DONE = true},
+
+
+	];
+	string description = "";
+	void AddTask()
+	{
+		if (!string.IsNullOrEmpty(description) && !string.IsNullOrWhiteSpace(description))
+		{
+			tasklist.Add(new TODO { Description = description });
+			description = "";
+		}
+
+	}
+}

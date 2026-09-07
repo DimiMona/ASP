@@ -12,5 +12,6 @@
 				this.Description.Equals((other as TODO).Description, StringComparison.OrdinalIgnoreCase) :
 				false;
 		}
+
 	}
 }
